@@ -9,7 +9,10 @@
 			:showPokemon="showPokemon"
 		/>
 
-		<PokemonOptions :options="pokemons" />
+		<PokemonOptions
+			:options="pokemons"
+			@selection="checkAnswer"
+		/>
 
 		<button
 			class="re-run-button"
@@ -48,6 +51,9 @@
 			},
 			reRun() {
 				location.reload();
+			},
+			checkAnswer(id) {
+				if (id === this.pokemon.id) this.showPokemon = true;
 			},
 		},
 		mounted() {

@@ -7,6 +7,7 @@
 				v-for="pokemon in options"
 				:key="pokemon.id"
 				class="fade-in"
+				@click="emit(pokemon.id)"
 			>
 				{{ pokemon.name }}
 			</li>
@@ -20,6 +21,11 @@
 			options: {
 				type: Array,
 				required: true,
+			},
+		},
+		methods: {
+			emit(id) {
+				this.$emit('selection', id);
 			},
 		},
 	};
