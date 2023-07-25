@@ -2,11 +2,13 @@
 
 <template>
 	<div class="options-container">
-		<ul v-if="options">
+		<ul
+			v-if="options"
+			class="fade-in"
+		>
 			<li
 				v-for="pokemon in options"
 				:key="pokemon.id"
-				class="fade-in"
 				@click="emit(pokemon.id)"
 			>
 				{{ pokemon.name }}
@@ -17,6 +19,11 @@
 
 <script>
 	export default {
+		data() {
+			return {
+				disabled: false,
+			};
+		},
 		props: {
 			options: {
 				type: Array,
@@ -54,5 +61,10 @@
 	.options-container {
 		display: flex;
 		justify-content: center;
+	}
+
+	.disabled {
+		pointer-events: none;
+		background-color: rgba(0, 0, 0, 0.05);
 	}
 </style>

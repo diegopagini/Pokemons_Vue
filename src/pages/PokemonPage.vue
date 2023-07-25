@@ -14,12 +14,18 @@
 			@selection="checkAnswer"
 		/>
 
-		<button
-			class="re-run-button"
-			@click="reRun"
-		>
-			Jugar otra vez
-		</button>
+		<div v-if="showAnswer">
+			<h2 clas="fade-in">
+				{{ message }}
+			</h2>
+
+			<button
+				class="re-run-button"
+				@click="reRun"
+			>
+				Jugar otra vez
+			</button>
+		</div>
 	</div>
 
 	<h1 v-else>Espere por favor...</h1>
@@ -41,6 +47,8 @@
 				pokemons: [],
 				pokemon: null,
 				showPokemon: false,
+				showAnswer: false,
+				message: '',
 			};
 		},
 		methods: {
@@ -50,10 +58,18 @@
 				this.pokemon = this.pokemons.at(rndInt);
 			},
 			reRun() {
-				location.reload();
+				this.pokemons = [];
+				this.pokemon = null;
+				this.showPokemon = false;
+				this.showAnswer = false;
+				this.mixPokemonArray();
 			},
 			checkAnswer(id) {
-				if (id === this.pokemon.id) this.showPokemon = true;
+				if (id === this.pokemon.id) {
+					this.showPokemon = true;
+					this.message = `Correcto, ${this.pokemon.name} 😀`;
+				} else this.message = `Ops, era ${this.pokemon.name} 😵‍💫`;
+				this.showAnswer = true;
 			},
 		},
 		mounted() {
@@ -70,7 +86,7 @@
 		cursor: pointer;
 		font-size: 1rem;
 		letter-spacing: 1px;
-		margin: 0 auto;
+		margin: 1rem auto 0;
 		outline: 1px solid #000;
 		padding: 1rem;
 	}
