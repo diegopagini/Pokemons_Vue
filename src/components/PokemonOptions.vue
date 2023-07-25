@@ -4,7 +4,8 @@
 	<div class="options-container">
 		<ul v-if="options">
 			<li
-				v-for="pokemon of options"
+				v-for="pokemon in options"
+				:key="pokemon.id"
 				class="fade-in"
 			>
 				{{ pokemon.name }}
@@ -27,6 +28,7 @@
 <style scoped>
 	ul {
 		list-style-type: none;
+		padding: unset;
 	}
 
 	li {
@@ -35,6 +37,7 @@
 		border: 1px solid rgba(0, 0, 0, 0.2);
 		cursor: pointer;
 		margin-bottom: 10px;
+		padding: 0.25rem;
 		width: 250px;
 	}
 
