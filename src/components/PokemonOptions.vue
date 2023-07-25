@@ -2,17 +2,26 @@
 
 <template>
 	<div class="options-container">
-		<ul>
-			<li>1</li>
-			<li>1</li>
-			<li>1</li>
-			<li>1</li>
+		<ul v-if="options">
+			<li
+				v-for="pokemon of options"
+				class="fade-in"
+			>
+				{{ pokemon.name }}
+			</li>
 		</ul>
 	</div>
 </template>
 
 <script>
-	export default {};
+	export default {
+		props: {
+			options: {
+				type: Array,
+				required: true,
+			},
+		},
+	};
 </script>
 
 <style scoped>
