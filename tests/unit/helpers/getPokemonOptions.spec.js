@@ -1,6 +1,8 @@
 /** @format */
 import getPokemonOptions, { getPokemonNames, getPokemons } from '@/helpers/getPokemonOptions';
 
+import { POKEMONS_MOCK } from '../mocks/pokemons';
+
 describe('getPokemonOptions', () => {
 	test('debe de regresar un arreglo de numeros', () => {
 		const pokemons = getPokemons();
@@ -12,12 +14,7 @@ describe('getPokemonOptions', () => {
 
 	test('debe de retornar un arreglo de 4 elementos con nombres de pokemons', async () => {
 		const pokemons = await getPokemonNames([1, 2, 3, 4]);
-		expect(pokemons).toStrictEqual([
-			{ name: 'bulbasaur', id: 1 },
-			{ name: 'ivysaur', id: 2 },
-			{ name: 'venusaur', id: 3 },
-			{ name: 'charmander', id: 4 },
-		]);
+		expect(pokemons).toStrictEqual(POKEMONS_MOCK);
 	});
 
 	test('getPokemonOptions debe de retornar un arreglo mezclado', async () => {

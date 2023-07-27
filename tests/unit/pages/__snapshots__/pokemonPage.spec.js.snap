@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PokemonPage Component debe de hacer match con el spanshot 1`] = `<h1>Espere por favor...</h1>`;
+
+exports[`PokemonPage Component debe de hacer match con el spanshot cuando cargan los pokemons 1`] = `
+<div>
+  <h1>¿Quién es este Pokémon?</h1>
+  <div class="pokemon-container">
+    <div class="pokemon-wrapper"><img alt="pokemon" class="hidden-pokemon" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg">
+      <!--v-if-->
+    </div>
+  </div>
+  <div class="options-container">
+    <ul class="fade-in">
+      <li>bulbasaur</li>
+      <li>ivysaur</li>
+      <li>venusaur</li>
+      <li>charmander</li>
+    </ul>
+  </div>
+  <!--v-if-->
+</div>
+`;
